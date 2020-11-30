@@ -15,10 +15,15 @@ basic.forever(function on_forever() {
         radio.sendNumber(acceleration)
     }
     
+    if (txrx == 0) {
+        led.toggle(0, 0)
+        serial.writeValue("x", acceleration)
+    }
+    
 })
 /** 
 def on_received_number(receivedNumber):
-    led.toggle(0, 0)
+    
     basic.show_string("Receiver")
     serial.write_value("x", receivedNumber)
 radio.on_received_number(on_received_number)

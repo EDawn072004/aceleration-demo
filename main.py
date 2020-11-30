@@ -12,11 +12,14 @@ if input.button_is_pressed(Button.B):
 def on_forever():
     if txrx == 1:
         radio.send_number(acceleration)
+    if txrx == 0:
+        led.toggle(0, 0)
+        serial.write_value("x", acceleration)
 basic.forever(on_forever)
 
 """
 def on_received_number(receivedNumber):
-    led.toggle(0, 0)
+    
     basic.show_string("Receiver")
     serial.write_value("x", receivedNumber)
 radio.on_received_number(on_received_number)
