@@ -5,9 +5,11 @@ acceleration = input.acceleration(Dimension.X)
 
 if input.button_is_pressed(Button.A):
     txrx = 0
+    basic.show_string("R")
 
 if input.button_is_pressed(Button.B):
     txrx = 1
+    basic.show_string("T")
 
 def on_forever():
     if txrx == 1:
