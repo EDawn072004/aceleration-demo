@@ -12,6 +12,12 @@ if input.button_is_pressed(Button.B):
     basic.show_string("T")
 
 def on_forever():
+    if input.button_is_pressed(Button.A):
+        txrx = 0
+        basic.show_string("R")
+    if input.button_is_pressed(Button.B):
+        txrx = 1
+        basic.show_string("T")
     if txrx == 1:
         radio.send_number(acceleration)
     if txrx == 0:

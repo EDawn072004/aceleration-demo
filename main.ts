@@ -13,6 +13,17 @@ if (input.buttonIsPressed(Button.B)) {
 }
 
 basic.forever(function on_forever() {
+    let txrx: number;
+    if (input.buttonIsPressed(Button.A)) {
+        txrx = 0
+        basic.showString("R")
+    }
+    
+    if (input.buttonIsPressed(Button.B)) {
+        txrx = 1
+        basic.showString("T")
+    }
+    
     if (txrx == 1) {
         radio.sendNumber(acceleration)
     }
