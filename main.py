@@ -17,7 +17,6 @@ radio.on_received_number(on_received_number)
 
 def on_forever():
     global acceleration, txrx
-    txrx2 = 0
     acceleration = input.acceleration(Dimension.X)
     led.toggle(0, 0)
     if input.button_is_pressed(Button.A):
@@ -28,6 +27,6 @@ def on_forever():
         basic.show_string("T")
     if txrx == 1:
         radio.send_number(acceleration)
-    if txrx2 == 0:
-        pass
+    if txrx == 0:
+        serial.write_number(acceleration)
 basic.forever(on_forever)
